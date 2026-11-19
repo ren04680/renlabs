@@ -28,13 +28,13 @@ http.createServer((req, res) => {
     if (err) {
       fs.readFile(path.join(ROOT, 'index.html'), (e2, fallback) => {
         if (e2) { res.writeHead(404).end('Not found'); return; }
-        res.writeHead(200, { 'Content-Type': TYPES['.html'] }).end(fallback);
+        res.writeHead(200, { 'Content-Type': TYPES['.html'], 'Cache-Control': 'no-cache' }).end(fallback);
       });
       return;
     }
     res.writeHead(200, {
       'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream',
-      'Cache-Control': 'public, max-age=300',
+      'Cache-Control': 'no-cache',
     }).end(body);
   });
 }).listen(PORT, '0.0.0.0', () => console.log('serving on ' + PORT));
