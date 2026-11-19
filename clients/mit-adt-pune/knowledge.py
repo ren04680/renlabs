@@ -484,7 +484,7 @@ CONTACTS = """## UNIVERSITY CONTACTS (VERIFIED)
   the one to give.
 
 ## RENLABS CONTACT
-- Renlabs: +91 95741 02202 (Rehan Surani, founder).
+- Renlabs team: +91 95741 02202.
 
 ## THREE CONTACTS - NEVER CONFUSE THEM
 - UNIVERSITY number: courses, fees, admissions, campus, hostels, anything about studying
@@ -496,8 +496,9 @@ CONTACTS = """## UNIVERSITY CONTACTS (VERIFIED)
 RENLABS = """## RENLABS (shareable)
 - Renlabs builds intelligence automation for customer support - AI voice agents that
   handle calls, and AI chat.
-- Founder: Rehan Surani. Based in Pune, Maharashtra, India.
-- Contact: +91 95741 02202.
+- Based in Pune, Maharashtra, India.
+- Contact: the Renlabs team on +91 95741 02202.
+- Do NOT name the founder or any individual at Renlabs.
 
 ## WHAT THIS DEMONSTRATION IS
 An independent Renlabs demonstration built on MIT ADT University's PUBLIC information.

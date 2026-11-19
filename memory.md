@@ -122,10 +122,13 @@ the institution name and domain for any future lead.
 | **MIT ADT University, Pune** | **Rehan** | ✅ **Complete** — 13 nodes, 33 edges, pushed |
 
 ### MIT ADT — notes
-- **General demo**, not personalised to anyone. Greeting: *"Hello! I'm Rehan, Renlabs' SI
-  assistant for MIT ADT University. How may I help you today?"*
-- Agent name **Rehan** overlaps the founder's name, so it hands over to *"the Renlabs
-  team"* and names Rehan Surani only if asked directly who runs Renlabs.
+- **General demo**, not personalised to anyone. Greeting (Ren's wording, locked):
+  *"Hello, Rehan this side, calling from MIT ADT. How may I help you?"*
+  A plain phone introduction — no Renlabs mention, no demo disclosure in the opening.
+- **The founder is never named.** Handover is always to *"the Renlabs team"* with the
+  number, even if asked who founded or runs Renlabs.
+- The soft opening does **not** relax the honesty rules: if asked directly whether this is
+  official, whether it is human, or who built it, the agent answers truthfully at once.
 - Eight documented conflicts in the university's own pages are carried into the agent:
   vice-chancellor, NIRF band, student numbers, school count, MITID seat intake, hostel
   fees, stale fee tables, vision wording.
