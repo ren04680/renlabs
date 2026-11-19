@@ -126,8 +126,13 @@ the institution name and domain for any future lead.
   domain; `demo.renlabs.sbs` was dropped and removed from Railway — the Hostinger CNAME
   for `demo` can be deleted)
 - **ElevenLabs agent:** `agent_6901m7rrp1k5egqrkhb9vmm14znb` — GPT-4.1, temp 0, Hinglish
-  mode, voice "Rajan Philips - Educational" (Indian male), scribe_realtime STT, public
-  access. Prompt = `elevenlabs-system-prompt-compact.md`.
+  mode, scribe_realtime STT, public access.
+- **Voice: "Vikram - Deep, Warm and Clear"** (`hczKB0VbXLcBTn17ShYS`) — young Indian male,
+  deep, natural Hinglish accent. Ren's spec: Indian male, 22-30, deep voice. Replaced
+  "Rajan Philips" which sounded foreign. Alternates if needed: Kishan - Strong, Deep and
+  Confident (`37frHvUllvzviJDpT2Qa`); Harshit Arya - Strong, Deep and Casual
+  (`6TcvxMZXgg9AlJrd8iCl`). Switching is one PATCH to `conversation_config.tts.voice_id`
+  after adding the voice to the workspace; no redeploy of the page needed. Prompt = `elevenlabs-system-prompt-compact.md`.
 - **Railway:** project `renlabs-os`, service `mitadt-demo`, repo-connected to
   `ren04680/renlabs` branch `claude/festive-cannon-239nlx`, root `site/`. Ren's main site
   (`renlabs-site` → renlabs.sbs) was NOT touched.
