@@ -121,6 +121,18 @@ the institution name and domain for any future lead.
 | Apple Global School — Mrs. Liza Shah | Aditya | Both JSONs delivered (executive + parent); source files lost, not rebuilt |
 | **MIT ADT University, Pune** | **Rehan** | ✅ **Complete** — 13 nodes, 33 edges, pushed |
 
+### MIT ADT — deliverables
+| File | For |
+|---|---|
+| `mit-adt-agent.json` | dograh — 13-node graph |
+| `elevenlabs-system-prompt-compact.md` | **ElevenLabs Agents — use this one.** ~1,700 tokens |
+| `elevenlabs-system-prompt.md` | Full version, ~11,400 tokens — too heavy for voice turns |
+| `elevenlabs-first-message.txt` | First Message field |
+
+**Keep voice system prompts to ~2,000 tokens.** The full flattened prompt cost ~11,400
+tokens on every turn. The compact one holds the behaviour rules, the conflicts, the dates,
+the fee guards and the placement guard; deeper detail belongs in a knowledge base.
+
 ### MIT ADT — notes
 - **General demo**, not personalised to anyone. Greeting (Ren's wording, locked):
   *"Hello, Rehan this side, calling from MIT ADT. How may I help you?"*
