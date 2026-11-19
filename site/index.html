@@ -3,107 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MIT ADT Admissions Line — Renlabs</title>
-<meta name="description" content="A Renlabs voice assistant demonstration for MIT ADT University, Pune.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<title>MIT ADT · Rehan</title>
 <style>
-:root{
-  --paper:#f7f5f0; --ink:#1b1a17; --muted:#6c6659; --line:#ddd8cc;
-  --card:#fffdf9; --accent:#8a5a1c; --agent:#2d4a3e;
-  --fd:"IBM Plex Serif",Georgia,serif; --fb:"IBM Plex Sans",system-ui,sans-serif;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#141519; --ink:#ece8df; --muted:#948d80; --line:#2b2d34;
-  --card:#1c1e24; --accent:#d8a35c; --agent:#8fc0a9; color-scheme:dark;}}
-:root[data-theme="dark"]{
-  --paper:#141519; --ink:#ece8df; --muted:#948d80; --line:#2b2d34;
-  --card:#1c1e24; --accent:#d8a35c; --agent:#8fc0a9; color-scheme:dark;}
+:root{--bg:#0f1113;--fg:#eceae6;--muted:#8b8780;--mic:#d8a35c;--live:#2fbf71;--speak:#5aa9e6;--btn:#22252a;--red:#e5484d}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--fb);
-  font-size:15px;line-height:1.6;
-  padding-left:max(16px,env(safe-area-inset-left,0px));
-  padding-right:max(16px,env(safe-area-inset-right,0px));
-  padding-block:0 120px}
-.wrap{max-width:640px;margin:0 auto}
-header{padding-block:40px 28px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;
-  color:var(--accent);font-weight:600;margin:0 0 10px}
-h1{font-family:var(--fd);font-size:1.75rem;font-weight:600;margin:0 0 10px;
-  line-height:1.25;text-wrap:balance}
-.lede{color:var(--muted);margin:0;font-size:1rem}
-section{padding-block:28px;border-bottom:1px solid var(--line)}
-h2{font-family:var(--fd);font-size:1rem;font-weight:600;margin:0 0 14px}
-ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:9px}
-li{color:var(--muted)}
-li b{color:var(--ink);font-weight:500}
-.q{font-family:var(--fd);color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
-.cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
-.cell .k{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;
-  color:var(--muted);font-weight:600;margin:0 0 5px}
-.cell .v{margin:0;font-size:.9rem}
-footer{padding-block:24px;color:var(--muted);font-size:.78rem}
-footer a{color:var(--accent)}
-.badge{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;
-  color:var(--muted);margin-top:14px}
-.badge span{width:7px;height:7px;border-radius:50%;background:var(--agent)}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  -webkit-tap-highlight-color:transparent;user-select:none}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.micwrap{position:relative;width:180px;height:180px;display:grid;place-items:center}
+#ring{position:absolute;inset:0;border-radius:50%;background:var(--mic);opacity:.18;transition:transform .08s linear,background .3s}
+#mic{position:relative;width:132px;height:132px;border-radius:50%;border:0;background:var(--mic);color:#1a1307;
+  display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.45);transition:background .3s,transform .15s}
+#mic:active{transform:scale(.96)}
+#mic:disabled{cursor:default}
+#mic svg{width:52px;height:52px}
+#status{color:var(--muted);font-size:1rem;min-height:1.4em;text-align:center}
+body[data-state=connecting] #ring{animation:spin 1.2s linear infinite;opacity:.35}
+body[data-state=listening] #mic,body[data-state=listening] #ring{background:var(--live)}
+body[data-state=speaking] #mic,body[data-state=speaking] #ring{background:var(--speak)}
+@keyframes spin{0%{transform:scale(1);opacity:.35}50%{transform:scale(1.18);opacity:.12}100%{transform:scale(1);opacity:.35}}
+.controls{display:flex;gap:44px;padding-bottom:8px}
+.ctl{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:.8rem}
+.ctl button{width:64px;height:64px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;
+  background:var(--btn);color:var(--fg);transition:background .2s,opacity .2s}
+.ctl button svg{width:26px;height:26px}
+.ctl button:disabled{opacity:.35;cursor:default}
+#mute.on{background:var(--fg);color:var(--bg)}
+#hang{background:var(--red);color:#fff}
+button:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.foot{position:fixed;bottom:max(8px,env(safe-area-inset-bottom));font-size:.68rem;color:#55524d}
+@media (prefers-reduced-motion:reduce){#ring{transition:none}body[data-state=connecting] #ring{animation:none}}
 </style>
 </head>
-<body>
-<div class="wrap">
-
-<header>
-  <p class="eyebrow">Renlabs · Voice demonstration</p>
-  <h1>MIT ADT University admissions line</h1>
-  <p class="lede">Talk to Rehan the way a prospective student would. Tap the widget, allow
-  your microphone, and ask anything — in English or Hinglish.</p>
-  <p class="badge"><span></span>Live · answers from the university's public information</p>
-</header>
-
-<section>
-  <h2>Try asking</h2>
-  <ul>
-    <li class="q">Where is the campus, and how far is it from Pune station?</li>
-    <li class="q">What are the B.Tech Computer Science fees?</li>
-    <li class="q">Can I still apply for this year?</li>
-    <li class="q">What's the average placement package?</li>
-    <li class="q">Mera 12th mein 70% hai, B.Des kar sakta hoon?</li>
-  </ul>
-</section>
-
-<section>
-  <h2>What it will not do</h2>
-  <ul>
-    <li><b>Quote a placement average.</b> The university publishes none with a cohort year,
-      so Rehan says so rather than repeating a headline number.</li>
-    <li><b>Say admissions are open.</b> The 2026–27 cycle closed in August 2026. It gives
-      the one live deadline instead.</li>
-    <li><b>Guess a fee.</b> Where a figure isn't published, it says so and gives the
-      admissions number.</li>
-    <li><b>Hide a contradiction.</b> Where two official pages disagree, it names the
-      conflict instead of picking one.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Built on</h2>
-  <div class="grid">
-    <div class="cell"><p class="k">Source</p><p class="v">MIT ADT public pages, researched 19 Nov 2026</p></div>
-    <div class="cell"><p class="k">Languages</p><p class="v">English and Hinglish</p></div>
-    <div class="cell"><p class="k">Covers</p><p class="v">Location, courses, structure, fees, admissions</p></div>
+<body data-state="idle">
+<div class="stage">
+  <div class="micwrap">
+    <div id="ring"></div>
+    <button id="mic" type="button" aria-label="Start call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/></svg>
+    </button>
   </div>
-</section>
-
-<footer>
-  <p>A Renlabs demonstration using publicly available information. Not an official MIT ADT
-  University service, and not endorsed by the university. For real enquiries, contact the
-  university directly.</p>
-  <p>Renlabs · Pune · <a href="tel:+919574102202">+91 95741 02202</a></p>
-</footer>
-
+  <div id="status">Tap the mic to talk</div>
 </div>
 
-<elevenlabs-convai agent-id="agent_6901m7rrp1k5egqrkhb9vmm14znb"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<div class="controls">
+  <div class="ctl">
+    <button id="mute" type="button" aria-pressed="false" aria-label="Mute" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l20 20"/><path d="M9 9v3a3 3 0 0 0 5.1 2.1"/><path d="M15 9.3V5a3 3 0 0 0-5.7-1.3"/><path d="M19 10a7 7 0 0 1-1 3.6M5 10a7 7 0 0 0 10.4 6.1"/><path d="M12 17v4"/></svg>
+    </button>
+    <span id="mutelabel">Mute</span>
+  </div>
+  <div class="ctl">
+    <button id="hang" type="button" aria-label="Hang up" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85a.99.99 0 0 1-1.41-.01L.29 13.08a1 1 0 0 1 0-1.41C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67a1 1 0 0 1 0 1.41l-2.48 2.48a.99.99 0 0 1-1.41.01 11.3 11.3 0 0 0-2.66-1.85 1 1 0 0 1-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
+    </button>
+    <span>Hang up</span>
+  </div>
+</div>
+<div class="foot">Renlabs demo</div>
+<script src="/app.js"></script>
 </body>
 </html>
