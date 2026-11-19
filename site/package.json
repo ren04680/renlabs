@@ -1,0 +1,8 @@
+{
+  "name": "mitadt-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Renlabs voice agent demo page for MIT ADT University",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
