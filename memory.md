@@ -119,7 +119,28 @@ the institution name and domain for any future lead.
 |---|---|---|
 | Designversity — Dr. Rohit Swarup | Aditya | JSON delivered; **source files lost in reset, not rebuilt (Ren's call)** |
 | Apple Global School — Mrs. Liza Shah | Aditya | Both JSONs delivered (executive + parent); source files lost, not rebuilt |
-| **MIT ADT University, Pune** | **Rehan** | ✅ **Complete** — 13 nodes, 33 edges, pushed |
+| **MIT ADT University, Pune** | **Rehan** | ✅ **LIVE** — https://mitadt-demo-production.up.railway.app |
+
+### MIT ADT — LIVE DEPLOYMENT
+- **Public URL: https://mitadt-demo-production.up.railway.app** (Ren chose the Railway
+  domain; `demo.renlabs.sbs` was dropped and removed from Railway — the Hostinger CNAME
+  for `demo` can be deleted)
+- **ElevenLabs agent:** `agent_6901m7rrp1k5egqrkhb9vmm14znb` — GPT-4.1, temp 0, Hinglish
+  mode, voice "Rajan Philips - Educational" (Indian male), scribe_realtime STT, public
+  access. Prompt = `elevenlabs-system-prompt-compact.md`.
+- **Railway:** project `renlabs-os`, service `mitadt-demo`, repo-connected to
+  `ren04680/renlabs` branch `claude/festive-cannon-239nlx`, root `site/`. Ren's main site
+  (`renlabs-site` → renlabs.sbs) was NOT touched.
+- **Page:** `site/` — minimal call UI (centre mic, Mute + Hang up). Runs the ElevenLabs
+  client SDK directly, bundled to `site/app.js`.
+- ⚠️ **Do not use the ElevenLabs embed widget.** It fails on mobile ("Failed to load the
+  rawAudioProcessor worklet module"). Fix in place: self-host the three worklets in
+  `site/worklets/` and pass `workletPaths` + `libsampleratePath` to `startSession`.
+- ⚠️ **Railway redeploys can pick up a stale commit.** Deploy with an explicit
+  `commitSha` and verify the live files afterwards.
+- WhatsApp's in-app browser can't run AudioWorklets — open the link in Chrome.
+- Credentials (ElevenLabs, Railway) are saved as network secrets on the `renlabs`
+  environment, injected by the proxy; never in the repo.
 
 ### MIT ADT — deliverables
 | File | For |
