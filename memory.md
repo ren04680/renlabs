@@ -119,9 +119,15 @@ the institution name and domain for any future lead.
 |---|---|---|
 | Designversity — Dr. Rohit Swarup | Aditya | JSON delivered; **source files lost in reset, not rebuilt (Ren's call)** |
 | Apple Global School — Mrs. Liza Shah | Aditya | Both JSONs delivered (executive + parent); source files lost, not rebuilt |
-| **MIT ADT University, Pune** | **Rehan** | ✅ **LIVE** — https://mitadt-demo-production.up.railway.app |
+| **MIT ADT University, Pune** | **Rehan** | 🗑️ **Retired** after the viva — Railway service, ElevenLabs agent and voices deleted. Source kept in repo |
 
-### MIT ADT — LIVE DEPLOYMENT
+### MIT ADT — RETIRED (deployment deleted after the viva)
+- Deleted: Railway service `mitadt-demo`, ElevenLabs agent `agent_6901m7rrp1k5egqrkhb9vmm14znb`,
+  voices Vikram and Rajan Philips. The URL below now returns 404.
+- Kept: all source in `clients/mit-adt-pune/` and `site/`, so it can be redeployed.
+- Ren's main site (`renlabs-site` → renlabs.sbs) and other ElevenLabs agents untouched.
+
+### MIT ADT — deployment record (historical)
 - **Public URL: https://mitadt-demo-production.up.railway.app** (Ren chose the Railway
   domain; `demo.renlabs.sbs` was dropped and removed from Railway — the Hostinger CNAME
   for `demo` can be deleted)
