@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>MIT ADT · Rehan</title>
 <style>
-:root{--bg:#0f1113;--fg:#eceae6;--muted:#8b8780;--mic:#d8a35c;--live:#2fbf71;--speak:#5aa9e6;--btn:#22252a;--red:#e5484d}
+:root{--bg:#0f1113;--fg:#eceae6;--muted:#8b8780;--mic:#2563eb;--live:#2fbf71;--speak:#60a5fa;--btn:#22252a;--red:#e5484d}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
   -webkit-tap-highlight-color:transparent;user-select:none}
+header{padding-top:12px;text-align:center}
+h1{margin:0;font-size:1.5rem;font-weight:600;letter-spacing:.01em}
 .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
 .micwrap{position:relative;width:180px;height:180px;display:grid;place-items:center}
 #ring{position:absolute;inset:0;border-radius:50%;background:var(--mic);opacity:.18;transition:transform .08s linear,background .3s}
-#mic{position:relative;width:132px;height:132px;border-radius:50%;border:0;background:var(--mic);color:#1a1307;
+#mic{position:relative;width:132px;height:132px;border-radius:50%;border:0;background:var(--mic);color:#ffffff;
   display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.45);transition:background .3s,transform .15s}
 #mic:active{transform:scale(.96)}
 #mic:disabled{cursor:default}
@@ -39,6 +42,7 @@ button:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
 </style>
 </head>
 <body data-state="idle">
+<header><h1>Welcome to MIT ADT</h1></header>
 <div class="stage">
   <div class="micwrap">
     <div id="ring"></div>
