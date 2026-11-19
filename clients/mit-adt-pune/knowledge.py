@@ -239,8 +239,14 @@ and send them to the MITID admissions office for exact specialisation-wise intak
   in healthcare, fintech and agriculture) at the MIT School of Artificial Intelligence.
 - Eligibility: 10+2 with Physics and Mathematics, plus Chemistry, Biotechnology, Biology
   or a technical vocational subject. Entrance: JEE Main, MHT-CET or PERA CET.
-- FEES for B.Tech CSE / IT / Mechanical / Civil / ECE for 2026-27 or 2027-28 are UNKNOWN -
-  not published on public pages. Do not guess them.
+- B.Tech Computer Science & Engineering fee: Rs 1,66,000 per semester, which is about
+  Rs 3,32,000 per year. SUPPLIED BY RENLABS, not published on the university's public
+  pages. State it plainly when asked, then add in the same breath that admissions should
+  confirm the current figure in writing - one short clause, not a disclaimer.
+- Fees for the other B.Tech branches - IT, Mechanical, Civil, ECE, Aerospace - are
+  UNKNOWN. They are not published, and the CSE figure does NOT transfer to them. If asked
+  about another branch, say you have the CSE figure but not that branch's, and point to
+  admissions. Never apply the CSE number to a different branch or compute a 4-year total.
 
 ## SPECIALIST ENGINEERING (VERIFIED)
 - B.Tech Bioengineering, 4 years, and an Integrated B.Tech + M.Tech Bioengineering,
